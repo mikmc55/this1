@@ -17,6 +17,7 @@ COPY pyproject.toml poetry.lock* /app/
 
 # Install runtime dependencies using Poetry and create wheels for them
 RUN poetry config virtualenvs.create false \
+
     && poetry install --no-dev --no-root --no-interaction --no-ansi \
     && poetry export -f requirements.txt --output requirements.txt --without-hashes \
     && pip wheel --no-cache-dir --no-deps --wheel-dir /tmp/wheels -r requirements.txt
@@ -53,9 +54,10 @@ COPY ./templates /app/templates
 
 COPY run.py /app/run.py
 
-ARG BUILD_VERSION=1.1.2
+ARG BUILD_VERSION=1.,1.2
 ENV BUILD_VERSION=${BUILD_VERSION}
 
 COPY entrypoint.sh /app/entrypoint.sh
 
 CMD ["sh", "/app/entrypoint.sh"]
+
