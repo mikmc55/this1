@@ -11,13 +11,13 @@ from annatar.api.filters import by_id as filter_by_id
 
 log = structlog.get_logger()
 DEFAULT_INDEXERS = (
-    "yts,eztv,kickasstorrents-ws,therarbg,torrentgalaxy,bitsearch,limetorrents,badasstorrents"
+    "aither-api,avistaz,bitsearch,bwtorrents,digitalcore,filelist,greatposterwall,hawke-uno,hdtorrents,lst,morethantv-api,privatehd,rutracker,skipthetrailers,solidtorrents,torrentleech,torrentseeds-api"
 )
 
 
 APP_ID = os.getenv("APP_ID", "community.annatar.addon.stremio")
 APP_NAME = os.getenv("APP_NAME", "Annatar")
-BUILD_VERSION: str = os.getenv("BUILD_VERSION", "UNKNOWN")
+BUILD_VERSION: str = os.getenv("BUILD_VERSION", "1.1.2")
 ENV = os.getenv("ENV", "dev")
 HOST: str = os.getenv("LISTEN_HOST", "0.0.0.0")
 JACKETT_INDEXERS_LIST = (os.getenv("JACKETT_INDEXERS") or DEFAULT_INDEXERS).split(",")
