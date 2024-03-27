@@ -10,13 +10,17 @@ from annatar.api.filters import Filter, by_category
 from annatar.api.filters import by_id as filter_by_id
 
 log = structlog.get_logger()
+DEFAULT_INDEXERS = (
+    "audiences,btsow,hdarea,hdatmos,hdfans,hdsky,milkie,monikadesign-api,ncore,passthepopcorn,thesceneplace,torlock,torrentseeds-api"
+)
+
 
 APP_ID = os.getenv("APP_ID", "community.annatar.addon.stremio")
 APP_NAME = os.getenv("APP_NAME", "Annatar")
 BUILD_VERSION: str = os.getenv("BUILD_VERSION", "1.1.2")
 ENV = os.getenv("ENV", "dev")
 HOST: str = os.getenv("LISTEN_HOST", "0.0.0.0")
-JACKETT_INDEXERS_LIST = os.getenv("JACKETT_INDEXERS", "").split(",")  # Directly using the environment variable
+JACKETT_INDEXERS_LIST = (os.getenv("JACKETT_INDEXERS") or DEFAULT_INDEXERS).split(",")
 PORT: int = int(os.getenv("LISTEN_PORT", "8000"))
 PROM_DIR = os.getenv(
     "PROMETHEUS_MULTIPROC_DIR", f"/tmp/annatar.metrics-{datetime.now().timestamp()}"
