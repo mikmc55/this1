@@ -1,4 +1,3 @@
----
 version: '3.8'
 volumes:
   jackett_config: {}
@@ -6,7 +5,9 @@ volumes:
 
 services:
   annatar:
-    image: docker.io/mikmc/annatarnew:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
       - "8000:8000"
     depends_on:
@@ -15,11 +16,11 @@ services:
       - "redis_data:/app/data"
     environment:
       LOG_LEVEL: debug
-      JACKETT_URL: "http://45.154.87.104:9117"
-      JACKETT_API_KEY: "6ebybwn3luj2nwyx4063naqjx82hvwuj"
-      JACKETT_MAX_RESULTS: "100"
-      JACKETT_TIMEOUT: "60"
-      JACKETT_INDEXERS: "backups,bigfangroup,bitsearch,btsow,extremlymtorrents,knaben,leech24,movieworld,sktorrent-org,solidtorrents,therarbg,torlock,torrentdownloads,torrentfunk,torrentleech,torrentseeds-api,torrentz2nz,xtremebytes,yourbittorrent"
+      JACKETT_URL: "http://157.97.88.29:9117"
+      JACKETT_API_KEY: "xhsfzj61y4r5m6k78jmumk0veumwnqg1"
+      JACKETT_MAX_RESULTS: "10"
+      JACKETT_TIMEOUT: "5"
+      JACKETT_INDEXERS: "1337x,bitsearch,btarg,eztv,knaben,lat-team-api,moviesdvdr,solidtorrents,therarbg,torlock,torrentdownloads,torrent9,torrentfunk,torrentz2nz,unionfansub,yts"
       LISTEN_PORT: "8000"
 
   jackett:
