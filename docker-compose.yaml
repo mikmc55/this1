@@ -16,11 +16,11 @@ services:
       - "redis_data:/app/data"
     environment:
       LOG_LEVEL: debug
-      JACKETT_URL: "http://157.97.88.29:9117"
-      JACKETT_API_KEY: "xhsfzj61y4r5m6k78jmumk0veumwnqg1"
+      JACKETT_URL: "http://1.14.73.37:9117"
+      JACKETT_API_KEY: "ft950g440swlqnrk8vpu35s533ok1fo87"
       JACKETT_MAX_RESULTS: "10"
       JACKETT_TIMEOUT: "5"
-      JACKETT_INDEXERS: "1337x,bitsearch,btarg,eztv,knaben,lat-team-api,moviesdvdr,solidtorrents,therarbg,torlock,torrentdownloads,torrent9,torrentfunk,torrentz2nz,unionfansub,yts"
+      JACKETT_INDEXERS: "audiences,btsow,eztv,hdarea,hdatmos,hdfans,hdsky,milkie,monikadesign-api,ncore,passthepopcorn,thesceneplace,torlock"
       LISTEN_PORT: "8000"
 
   jackett:
