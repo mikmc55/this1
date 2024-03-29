@@ -11,7 +11,7 @@ from annatar.api.filters import by_id as filter_by_id
 
 log = structlog.get_logger()
 DEFAULT_INDEXERS = (
-    "aither-api,avistaz,bitsearch,bwtorrents,digitalcore,filelist,greatposterwall,hawke-uno,hdtorrents,lst,morethantv-api,privatehd,rutracker,skipthetrailers,solidtorrents,torrentleech,torrentseeds-api"
+    "audiences,btsow,eztv,hdarea,hdatmos,hdfans,hdsky,milkie,monikadesign-api,ncore,passthepopcorn,thesceneplace,torlock"
 )
 
 
