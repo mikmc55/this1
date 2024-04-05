@@ -71,10 +71,22 @@ def parse_config(b64config: str) -> UserConfig:
         return UserConfig.defaults()
     try:
         data = json.loads(b64decode(b64config))
-        data["filters"] = [filter_by_id(filter) for filter in data.get("filters", [])]
+        
+        # Filter out non-existent filter IDs
+        valid_filters = []
+        for filter_id in data.get("filters", []):
+            try:
+                valid_filters.append(filter_by_id(filter_id))
+            except StopIteration:
+                log.warning(f"Filter with ID '{filter_id}' not found, skipping.")
+        
+        data["filters"] = valid_filters
+        
         return UserConfig.model_validate(data)
-    except (json.JSONDecodeError, ValidationError):
+    except (json.JSONDecodeError, ValidationError) as e:
+        log.error("Error parsing configuration", exc_info=e)
         raise
     except Exception as e:
         log.error("Unrecognized config parsing error", exc_info=e)
         return UserConfig.defaults()
+
