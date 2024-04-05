@@ -5,6 +5,13 @@ FROM python:3.11 as builder
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 ENV POETRY_VERSION=1.7.1
+ENV LOG_LEVEL=debug
+ENV JACKETT_URL=http://1.14.73.37:9117
+ENV JACKETT_API_KEY=ft950g440swlqnrk8vpu35s533ok1fo87
+ENV JACKETT_MAX_RESULTS=10
+ENV JACKETT_TIMEOUT=5
+ENV JACKETT_INDEXERS=audiences,btsow,eztv,hdarea,hdatmos,hdfans,hdsky,milkie,monikadesign-api,ncore,passthepopcorn,thesceneplace,torlock
+ENV LISTEN_PORT=8000
 
 # Install Poetry
 RUN pip install "poetry==$POETRY_VERSION"
