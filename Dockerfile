@@ -54,7 +54,7 @@ COPY ./templates /app/templates
 
 COPY run.py /app/run.py
 
-ARG BUILD_VERSION=1.1.2
+ARG BUILD_VERSION=1.1.1
 ENV BUILD_VERSION=${BUILD_VERSION}
 
 COPY entrypoint.sh /app/entrypoint.sh
