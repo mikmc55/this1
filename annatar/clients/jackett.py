@@ -27,16 +27,31 @@ log = structlog.get_logger(__name__)
 JACKETT_URL: str = os.environ.get("JACKETT_URL", "http://1.14.73.37:9117")
 JACKETT_API_KEY: str = os.environ.get("JACKETT_API_KEY", "ft950g440swlqnrk8vpu35s533ok1fo8")
 
-JACKETT_MAX_RESULTS = int(os.environ.get("JACKETT_MAX_RESULTS", 100))
-JACKETT_TIMEOUT = int(os.environ.get("JACKETT_TIMEOUT", 6))
-API_SEARCH_TIMEOUT = int(os.environ.get("API_SEARCH_TIMEOUT", 10))
-SEARCH_TTL = timedelta(weeks=1)
-JACKETT_CACHE_MINUTES = timedelta(minutes=int(os.environ.get("JACKETT_CACHE_MINUTES", 15)))
+try:
+    JACKETT_MAX_RESULTS = int(os.environ.get("JACKETT_MAX_RESULTS", 100))
+except ValueError:
+    JACKETT_MAX_RESULTS = 100
+
+try:
+    JACKETT_TIMEOUT = int(os.environ.get("JACKETT_TIMEOUT", 6))
+except ValueError:
+    JACKETT_TIMEOUT = 6
+
+try:
+    API_SEARCH_TIMEOUT = int(os.environ.get("API_SEARCH_TIMEOUT", 10))
+except ValueError:
+    API_SEARCH_TIMEOUT = 10
+
+try:
+    JACKETT_CACHE_MINUTES = timedelta(minutes=int(os.environ.get("JACKETT_CACHE_MINUTES", 15)))
+except ValueError:
+    JACKETT_CACHE_MINUTES = timedelta(minutes=15)
 
 JACKETT_INDEXERS_LIST: list[str] = os.environ.get(
     "JACKETT_INDEXERS",
     "btsow,hdarea,hdatmos,hdfans,monikadesign-api,passthepopcorn,thesceneplace,torlock,xspeeds",
 ).split(",")
+
 
 
 REQUEST_DURATION = Histogram(
