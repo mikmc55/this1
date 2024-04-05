@@ -14,7 +14,6 @@ DEFAULT_INDEXERS = (
     "audiences,btsow,hdarea,hdatmos,hdfans,hdsky,milkie,monikadesign-api,ncore,passthepopcorn,thesceneplace,torlock,torrentseeds-api"
 )
 
-
 APP_ID = os.getenv("APP_ID", "community.annatar.addon.stremio")
 APP_NAME = os.getenv("APP_NAME", "Annatar")
 BUILD_VERSION: str = os.getenv("BUILD_VERSION", "1.1.2")
