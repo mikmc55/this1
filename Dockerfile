@@ -60,4 +60,3 @@ ENV BUILD_VERSION=${BUILD_VERSION}
 COPY entrypoint.sh /app/entrypoint.sh
 
 CMD ["sh", "/app/entrypoint.sh"]
-
