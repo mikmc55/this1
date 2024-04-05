@@ -16,7 +16,7 @@ DEFAULT_INDEXERS = (
 
 APP_ID = os.getenv("APP_ID", "community.annatar.addon.stremio")
 APP_NAME = os.getenv("APP_NAME", "Annatar")
-BUILD_VERSION: str = os.getenv("BUILD_VERSION", "1.1.2")
+BUILD_VERSION: str = os.getenv("BUILD_VERSION", "1.1.1")
 ENV = os.getenv("ENV", "dev")
 HOST: str = os.getenv("LISTEN_HOST", "0.0.0.0")
 JACKETT_INDEXERS_LIST = (os.getenv("JACKETT_INDEXERS") or DEFAULT_INDEXERS).split(",")
