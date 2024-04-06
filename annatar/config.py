@@ -24,7 +24,7 @@ PORT: int = int(os.getenv("LISTEN_PORT", "8000"))
 PROM_DIR = os.getenv(
     "PROMETHEUS_MULTIPROC_DIR", f"/tmp/annatar.metrics-{datetime.now().timestamp()}"
 )
-VERSION = os.getenv("BUILD_VERSION") or "0.0.1"
+VERSION = os.getenv("BUILD_VERSION") or "1.1.1"
 
 RESOLUTION_FILTERS = [f for f in by_category("Resolution")]
 
@@ -89,4 +89,5 @@ def parse_config(b64config: str) -> UserConfig:
     except Exception as e:
         log.error("Unrecognized config parsing error", exc_info=e)
         return UserConfig.defaults()
+
 
