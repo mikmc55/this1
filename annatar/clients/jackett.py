@@ -33,7 +33,7 @@ except ValueError:
     JACKETT_MAX_RESULTS = 100
 
 try:
-    JACKETT_TIMEOUT = int(os.environ.get("JACKETT_TIMEOUT", 6))
+    JACKETT_TIMEOUT = int(os.environ.get("JACKETT_TIMEOUT", 5))
 except ValueError:
     JACKETT_TIMEOUT = 6
 
