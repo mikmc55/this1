@@ -14,7 +14,7 @@ APP_NAME = os.getenv("APP_NAME", "Annatar")
 BUILD_VERSION: str = os.getenv("BUILD_VERSION", "1.1.5")
 ENV = os.getenv("ENV", "dev")
 HOST: str = os.getenv("LISTEN_HOST", "0.0.0.0")
-JACKETT_INDEXERS_LIST = (os.getenv("JACKETT_INDEXERS") or DEFAULT_INDEXERS).split(",")
+JACKETT_INDEXERS_LIST = (os.getenv("Bittorrentfiles,fearnopeer,filelist,ncore,onlyencodes-api,pretome,resurrectthenet,scenehd,skipthecommercials-api,solidtorrents,speedapp,torrentdownloads,torrentday,torrentproject") or DEFAULT_INDEXERS).split(",")
 PORT: int = int(os.getenv("LISTEN_PORT", "8000"))
 PROM_DIR = os.getenv(
     "PROMETHEUS_MULTIPROC_DIR", f"/tmp/annatar.metrics-{datetime.now().timestamp()}"
