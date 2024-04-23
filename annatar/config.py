@@ -6,12 +6,12 @@ import structlog
 from pydantic import BaseModel
 
 log = structlog.get_logger()
-DEFAULT_INDEXERS = "yts,eztv,kickasstorrents-ws,thepiratebay,therarbg,torrentgalaxy,bitsearch,limetorrents,badasstorrents"
+DEFAULT_INDEXERS = "Bittorrentfiles,fearnopeer,filelist,ncore,onlyencodes-api,pretome,resurrectthenet,scenehd,skipthecommercials-api,solidtorrents,speedapp,torrentdownloads,torrentday,torrentproject2"
 
 
 APP_ID = os.getenv("APP_ID", "community.annatar.addon.stremio")
 APP_NAME = os.getenv("APP_NAME", "Annatar")
-BUILD_VERSION: str = os.getenv("BUILD_VERSION", "UNKNOWN")
+BUILD_VERSION: str = os.getenv("BUILD_VERSION", "1.1.5")
 ENV = os.getenv("ENV", "dev")
 HOST: str = os.getenv("LISTEN_HOST", "0.0.0.0")
 JACKETT_INDEXERS_LIST = (os.getenv("JACKETT_INDEXERS") or DEFAULT_INDEXERS).split(",")
@@ -19,7 +19,7 @@ PORT: int = int(os.getenv("LISTEN_PORT", "8000"))
 PROM_DIR = os.getenv(
     "PROMETHEUS_MULTIPROC_DIR", f"/tmp/annatar.metrics-{datetime.now().timestamp()}"
 )
-VERSION = os.getenv("BUILD_VERSION") or "0.0.1"
+VERSION = os.getenv("BUILD_VERSION") or "1.1.5"
 
 
 class UserConfig(BaseModel):
