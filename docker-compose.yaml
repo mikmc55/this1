@@ -6,7 +6,7 @@ volumes:
 
 services:
   annatar:
-    image: registry.gitlab.com/help-yourself/mik-annatar:latest
+    image: registry.gitlab.com/help-yourself/mik-annatar
     ports:
       - "8000:8000"
     depends_on:
